@@ -2,6 +2,8 @@ package com.wqy.android.customloading;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +14,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private CheckBox cancelableBox;
 	private Button defaultLoadBtn, showBtn, hideBtn;
+	private final static int DEFAULT = 0, CUSTOM = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +51,29 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (id == R.id.btn_show) {
 			boolean cancelable = this.cancelableBox.isChecked();
 			LoadingView.showLoading(cancelable, this, getString(R.string.loading_msg));
+			this.handler.sendEmptyMessageDelayed(CUSTOM, 5000);
 		} else if (id == R.id.defaultLoadBtn) {
 			DefaultLoading.showProgressBar(this, getString(R.string.loading_msg));
+			this.handler.sendEmptyMessageDelayed(DEFAULT, 5000);
 		}
 
 	}
 
+	Handler handler = new Handler() {
+
+		/**
+		 * {@inheritDoc}
+		 * @see android.os.Handler#handleMessage(android.os.Message)
+		 */
+		@Override
+		public void handleMessage(Message msg) {
+			if (msg.what == DEFAULT) {
+				DefaultLoading.closeProgressBar();
+			} else {
+				LoadingView.hideLoading();
+			}
+			super.handleMessage(msg);
+		}
+
+	};
 }
