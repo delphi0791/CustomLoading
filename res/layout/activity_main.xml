@@ -8,6 +8,24 @@
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	android:paddingTop="@dimen/activity_vertical_margin"
 	tools:context=".MainActivity" >
+	<TextView
+		android:id="@+id/textView2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Default loading"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
+	<Button
+		android:id="@+id/defaultLoadBtn"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="show" />
+	<TextView
+		android:id="@+id/textView1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:text="自定义loading"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

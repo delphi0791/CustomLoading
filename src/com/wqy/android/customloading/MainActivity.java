@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 public class MainActivity extends Activity implements OnClickListener {
 
 	private CheckBox cancelableBox;
-	private Button showBtn, hideBtn;
+	private Button defaultLoadBtn, showBtn, hideBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	private void findViews() {
+		this.defaultLoadBtn = (Button) findViewById(R.id.defaultLoadBtn);
+		this.defaultLoadBtn.setOnClickListener(this);
 		this.showBtn = (Button) findViewById(R.id.btn_show);
 		this.showBtn.setOnClickListener(this);
 		this.hideBtn = (Button) findViewById(R.id.btn_hide);
@@ -41,11 +43,13 @@ public class MainActivity extends Activity implements OnClickListener {
 	 */
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.btn_show) {
+		int id = v.getId();
+
+		if (id == R.id.btn_show) {
 			boolean cancelable = this.cancelableBox.isChecked();
 			LoadingView.showLoading(cancelable, this, getString(R.string.loading_msg));
-		} else {
-
+		} else if (id == R.id.defaultLoadBtn) {
+			DefaultLoading.showProgressBar(this, getString(R.string.loading_msg));
 		}
 
 	}
