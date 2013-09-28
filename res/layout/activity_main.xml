@@ -24,8 +24,29 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="20dp"
-		android:text="自定义loading"
+		android:text="Gif loading"
 		android:textAppearance="?android:attr/textAppearanceMedium" />
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+		<Button
+			android:id="@+id/btn_show"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Show" />
+	</LinearLayout>
+	<TextView
+		android:id="@+id/textView3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Animation Loading"
+		android:textAppearance="?android:attr/textAppearanceMedium" />
+	<Button
+		android:id="@+id/animBtn"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Show" />
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -36,21 +57,5 @@
 			android:layout_height="wrap_content"
 			android:checked="true"
 			android:text="CancelAble" />
-	</LinearLayout>
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal" >
-		<Button
-			android:id="@+id/btn_hide"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Hide" />
-		<Button
-			android:id="@+id/btn_show"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="34dp"
-			android:text="Show" />
 	</LinearLayout>
 </LinearLayout>
